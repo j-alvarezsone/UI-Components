@@ -1,0 +1,78 @@
+/* Font-face declarations */
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url(../fonts/Roboto-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url(../fonts/Roboto-medium.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url(../fonts/Roboto-bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geomanist Book';
+  src: url(../fonts/Geomanist-book.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geomanist Regular';
+  src: url(../fonts/Geomanist-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  position: relative;
+  min-width: 0;
+}
+
+/* Component styles */
+@layer components {
+  #app {
+    @apply h-dvh lg:h-screen flex flex-col;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 font-roboto-regular min-h-dvh;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  h1,
+  h2 {
+    @apply font-geomanist-book;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+}
