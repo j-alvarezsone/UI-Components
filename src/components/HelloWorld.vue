@@ -6,4 +6,5 @@ defineProps<{ msg: string }>()
   <p class="text-blue-500 font-roboto-medium text-2xl">
     {{ msg }}
   </p>
+  <Loader class="fill-white" />
 </template>
