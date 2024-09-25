@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+import { colorPalette } from './src/utils/colorPalette'
+
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        ...colorPalette,
+      },
+    },
     fontFamily: {
       'roboto-regular': ['Roboto Regular'],
       'roboto-medium': ['Roboto Medium'],
