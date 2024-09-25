@@ -8,7 +8,7 @@ defineProps<{ msg: string }>()
   <p class="text-blue-500 font-roboto-medium text-2xl">
     {{ msg }}
   </p>
-  <BaseButton loading size="lg">
+  <BaseButton size="lg">
     Click
   </BaseButton>
 </template>

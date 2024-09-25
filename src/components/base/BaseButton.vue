@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Icons } from '../../type/icon'
-import { computed, ref } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 
 interface Props {
   type?: 'button' | 'submit' | 'reset'
@@ -36,7 +36,7 @@ const {
   rounded = false,
 } = defineProps<Props>()
 
-const btnRef = ref<HTMLButtonElement | null>(null)
+const btnRef = useTemplateRef('btnRef')
 const hasLabel = computed(() => !!btnRef.value?.textContent)
 const ariaLabel = computed(() => {
   if (!hasLabel.value && icon)
