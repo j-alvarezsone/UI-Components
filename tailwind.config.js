@@ -8,6 +8,12 @@ export default {
       colors: {
         ...colorPalette,
       },
+      spacing: {
+        3.5: '0.875rem',
+        4.5: '1.125rem',
+        15: '3.75rem',
+
+      },
     },
     fontFamily: {
       'roboto-regular': ['Roboto Regular'],

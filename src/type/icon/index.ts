@@ -1,2 +1,3 @@
 export type Icons =
-  'BaselineErrorOutline'
+  'BaselineErrorOutline' | 'BaselineContentCopy' |
+  'QuestionCircle'
