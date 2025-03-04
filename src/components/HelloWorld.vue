@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButton from "./base/BaseButton.vue"
+import Tooltip from "./Tooltip.vue"
 
 defineProps<{ msg: string }>()
 </script>
@@ -11,4 +12,14 @@ defineProps<{ msg: string }>()
   <BaseButton size="lg" icon="QuestionCircle">
     Click!!
   </BaseButton>
+  <Tooltip>
+    <template #default="{ event }">
+      <h2 v-on="event.on">
+        Tooltip
+      </h2>
+    </template>
+    <template #content>
+      <p>This is the tooltip content</p>
+    </template>
+  </Tooltip>
 </template>
