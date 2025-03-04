@@ -68,7 +68,7 @@ const style = computed(() => {
       'size-14': size === '2xl' && !hasLabel.value,
     },
     // --- Severity Button States ---
-    'focus:outline-none focus:outline-offset-0 focus:ring',
+    'focus:outline-hidden focus:outline-offset-0 focus:ring-3',
     // --- Variants ---
     // Primary
     {

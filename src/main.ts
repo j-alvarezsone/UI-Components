@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { ripple } from './directives/ripple'
 import globalComponents from './plugins/globalComponents'
-import './assets/style.css'
+import './assets/css/main.css'
 
 const app = createApp(App)
 
