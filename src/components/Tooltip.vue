@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import type { ObjectValues } from "../type"
+import type { TooltipPlacement } from "../type"
 import { computed, nextTick, reactive, ref, watch } from "vue"
 import { useEventListener } from "../composables/useEventListner"
-import { TOOLTIP_PLACEMENTS } from "../directives/tooltip"
-
-export type TooltipPlacement = ObjectValues<typeof TOOLTIP_PLACEMENTS>
+import { TOOLTIP_PLACEMENTS } from "../constants/tooltip"
 
 interface Props {
   content?: string

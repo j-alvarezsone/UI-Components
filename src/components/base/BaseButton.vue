@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Icons } from "../../type/icon"
+import type { IconName } from "../../type/icon"
 import { computed, useTemplateRef } from "vue"
 import Loader from "../Loader.vue"
 import BaseIcon from "./BaseIcon.vue"
@@ -9,7 +9,7 @@ interface Props {
   disabled?: boolean
   size?: "sm" | "md" | "lg" | "xl" | "2xl"
   variant?: "primary" | "secondary" | "tertiary" | "danger" | "transparent"
-  icon?: Icons
+  icon?: IconName
   iconPos?: "left" | "right"
   iconSize?: string
   loading?: boolean

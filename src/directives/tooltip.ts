@@ -1,40 +1,6 @@
 import type { Directive, DirectiveBinding } from "vue"
-import type { ObjectValues } from "../type"
 import { render } from "vue"
-
-const TOOLTIP = {
-  DISPLAY: "--tooltip-display",
-  TOP: "--tooltip-top",
-  BOTTOM: "--tooltip-bottom",
-  LEFT: "--tooltip-left",
-  RIGHT: "--tooltip-right",
-  MAX_WIDTH: "--tooltip-maxWidth",
-  MAX_HEIGHT: "--tooltip-maxHeight",
-  FONT_SIZE: "--tooltip-fontSize",
-  BACKGROUND_COLOR: "--tooltip-backgroundColor",
-  TEXT_COLOR: "--tooltip-textColor",
-  PADDING: "--tooltip-padding",
-  Z_INDEX: "--tooltip-zIndex",
-  ARROW_BORDER_COLOR: "--tooltip-arrowBorderColor",
-  ARROW_DISPLAY: "--tooltip-arrow-display",
-} as const
-
-export const TOOLTIP_PLACEMENTS = {
-  TOP: "top",
-  TOP_START: "topStart",
-  TOP_END: "topEnd",
-  BOTTOM: "bottom",
-  BOTTOM_START: "bottomStart",
-  BOTTOM_END: "bottomEnd",
-  LEFT: "left",
-  LEFT_START: "leftStart",
-  LEFT_END: "leftEnd",
-  RIGHT: "right",
-  RIGHT_START: "rightStart",
-  RIGHT_END: "rightEnd",
-} as const
-
-export type TooltipPlacement = ObjectValues<typeof TOOLTIP_PLACEMENTS>
+import { TOOLTIP, TOOLTIP_PLACEMENTS } from "../constants/tooltip"
 
 const tooltipContainer = document.createElement("div")
 let hideTimeout: number | null = null

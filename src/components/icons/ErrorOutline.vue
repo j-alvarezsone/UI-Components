@@ -2,7 +2,7 @@
 import { defineComponent } from "vue"
 
 defineComponent({
-  name: "IcBaselineErrorOutline",
+  name: "ErrorOutline",
 })
 </script>
 

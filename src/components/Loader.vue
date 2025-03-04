@@ -2,8 +2,8 @@
 import { computed } from "vue"
 
 interface Props {
-  size?: "sm" | "md" | "lg"
-  color?: "light" | "dark"
+  size?: "sm" | "md" | "lg" | "xl"
+  color?: "light" | "dark" | "neutral"
   isTextVisible?: boolean
 }
 
@@ -21,6 +21,7 @@ const style = computed(() => {
     { "size-10": size === "lg" },
     { "border-blue-500": color === "light" },
     { "border-neutral-100": color === "dark" },
+    { "border-gray-300": color === "neutral" },
   ]
 })
 
@@ -31,6 +32,7 @@ const textStyle = computed(() => {
     { "text-2xl": size === "lg" },
     { "text-blue-500": color === "light" },
     { "text-neutral-100": color === "dark" },
+    { "text-gray-300": color === "neutral" },
   ]
 })
 </script>

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { Icons } from "../../type/icon"
+import type { IconName } from "../../type/icon"
 import { computed, defineAsyncComponent } from "vue"
 
 const props = defineProps<{
-  name: Icons
+  name: IconName
 }>()
 
 const iconComponent = computed(() => {
