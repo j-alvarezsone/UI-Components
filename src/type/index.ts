@@ -4,3 +4,8 @@ export type ObjectValues<T> = T[keyof T]
 export type ObjectKeys<T> = keyof T
 
 export type TooltipPlacement = ObjectValues<typeof TOOLTIP_PLACEMENTS>
+
+export interface GenericOption {
+  label: string
+  value: string
+}
