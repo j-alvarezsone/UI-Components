@@ -5,10 +5,10 @@ defineProps<{ msg: string }>()
 </script>
 
 <template>
-  <p class="text-blue-500 font-roboto-medium text-2xl">
+  <p v-tooltip="'test'" class="text-blue-500 font-roboto-medium text-2xl">
     {{ msg }}
   </p>
   <BaseButton size="lg" icon="QuestionCircle">
-    Click
+    Click!!
   </BaseButton>
 </template>
