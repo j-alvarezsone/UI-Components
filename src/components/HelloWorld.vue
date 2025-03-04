@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseButton from './base/BaseButton.vue'
+import BaseButton from "./base/BaseButton.vue"
 
 defineProps<{ msg: string }>()
 </script>

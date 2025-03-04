@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { Icons } from '../../type/icon'
-import { computed, defineAsyncComponent } from 'vue'
+import type { Icons } from "../../type/icon"
+import { computed, defineAsyncComponent } from "vue"
 
 const props = defineProps<{
   name: Icons
@@ -11,7 +11,7 @@ const iconComponent = computed(() => {
     return defineAsyncComponent(() => import(`../icons/${props.name}.vue`))
   }
 
-  return ''
+  return ""
 })
 </script>
 

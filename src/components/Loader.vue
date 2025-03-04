@@ -1,36 +1,36 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed } from "vue"
 
 interface Props {
-  size?: 'sm' | 'md' | 'lg'
-  color?: 'light' | 'dark'
+  size?: "sm" | "md" | "lg"
+  color?: "light" | "dark"
   isTextVisible?: boolean
 }
 
 const {
-  size = 'lg',
-  color = 'light',
+  size = "lg",
+  color = "light",
   isTextVisible = true,
 } = defineProps<Props>()
 
 const style = computed(() => {
   return [
-    'border border-solid',
-    { 'size-4': size === 'sm' },
-    { 'size-6': size === 'md' },
-    { 'size-10': size === 'lg' },
-    { 'border-blue-500': color === 'light' },
-    { 'border-neutral-100': color === 'dark' },
+    "border border-solid",
+    { "size-4": size === "sm" },
+    { "size-6": size === "md" },
+    { "size-10": size === "lg" },
+    { "border-blue-500": color === "light" },
+    { "border-neutral-100": color === "dark" },
   ]
 })
 
 const textStyle = computed(() => {
   return [
-    { 'text-sm': size === 'sm' },
-    { 'text-base': size === 'md' },
-    { 'text-2xl': size === 'lg' },
-    { 'text-blue-500': color === 'light' },
-    { 'text-neutral-100': color === 'dark' },
+    { "text-sm": size === "sm" },
+    { "text-base": size === "md" },
+    { "text-2xl": size === "lg" },
+    { "text-blue-500": color === "light" },
+    { "text-neutral-100": color === "dark" },
   ]
 })
 </script>

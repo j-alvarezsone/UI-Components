@@ -1,5 +1,14 @@
-import antfu from '@antfu/eslint-config'
+import antfu from "@antfu/eslint-config"
 
 export default antfu({
-  vue: true,
+  rules: {
+    "curly": "off",
+    "style/brace-style": ["error", "1tbs", { allowSingleLine: true }],
+    "style/arrow-parens": ["error", "always"],
+    "style/quotes": ["error", "double"],
+    "style/max-statements-per-line": ["error", { max: 2 }],
+    "jsonc/no-useless-escape": "off",
+    "no-irregular-whitespace": "off",
+    "no-console": "off",
+  },
 })
