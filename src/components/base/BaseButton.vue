@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Icons } from "../../type/icon"
 import { computed, useTemplateRef } from "vue"
+import Loader from "../Loader.vue"
+import BaseIcon from "./BaseIcon.vue"
 
 interface Props {
   type?: "button" | "submit" | "reset"
@@ -205,7 +207,7 @@ const loaderSize = computed(() => {
       <Loader :is-text-visible="false" :size="loaderSize" color="dark" />
     </div>
     <div v-if="icon" :test-id="icon" :class="[size === '2xl' ? 'size-6' : 'size-5', { 'order-1': iconPos === 'right' && hasLabel }]">
-      <Icon :name="icon" :class="iconStyle" />
+      <BaseIcon :name="icon" :class="iconStyle" />
     </div>
     <slot />
   </button>
