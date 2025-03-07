@@ -48,7 +48,7 @@ const toggle = ref(false)
     <InputCheckbox v-model="check" name="check" :checked-value="true" label="$ USD" />
     <InputRadio v-model="radio" name="usd" checked-value="USD" label="$ USD" />
     <InputRadio v-model="radio" name="eur" checked-value="EUR" label="€ EUR" />
-    <InputToggle v-model="toggle" name="toggle" label="Toggle" tooltip-text="test" hide-tooltip label-position="right" />
+    <InputToggle v-model="toggle" name="toggle" label="Toggle" :checked-value="true" :unchecked-value="false" tooltip-text="test" hide-tooltip label-position="right" />
     <InputEmail class="w-88" name="email" label="Test" placeholder="Type your Email..." />
     <InputPassword class="w-88" name="password" label="Test" placeholder="Type your Password..." />
   </div>

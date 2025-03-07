@@ -1,104 +1,77 @@
 <script setup lang="ts">
 import { useField } from "vee-validate"
-import { computed } from "vue"
+import { computed, useSlots } from "vue"
 
 interface Props {
-  label?: string
-  labelPosition?: "left" | "right"
+  size?: "md" | "lg"
   name: string
-  checkedValue?: boolean
-  size?: "sm" | "md" | "lg"
-  modelValue?: boolean
+  label?: string
+  secondaryLabel?: string
+  description?: string
+  position?: "left" | "right"
+  spaceBetween?: boolean
+  disabled?: boolean
+  checkedValue: boolean | string | number
+  uncheckedValue: boolean | string | number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  label: "",
-  labelPosition: "right",
-  checkedValue: true,
-  size: "md",
-  modelValue: undefined,
+  size: "lg",
+  label: undefined,
+  secondaryLabel: undefined,
+  description: undefined,
+  position: "right",
+  spaceBetween: false,
+  disabled: false,
 })
 
-defineEmits<{
-  "update:modelValue": [value: boolean]
-}>()
+const slots = useSlots()
 
-const {
-  value: inputValue,
-  handleChange,
-  checked,
-} = useField(() => props.name, undefined, {
+const { value, handleChange, checked } = useField<boolean | string | number>(() => props.name, undefined, {
   type: "checkbox",
-  uncheckedValue: false,
+  uncheckedValue: props.uncheckedValue,
   checkedValue: props.checkedValue,
   syncVModel: true,
 })
 
-const style = computed(() => {
-  return {
-    "w-8": props.size === "sm",
-    "w-10": props.size === "md",
-    "w-14": props.size === "lg",
-    "bg-blue-500": inputValue.value,
-    "bg-gray-200": !inputValue.value,
-  }
+const labelStyle = computed(() => {
+  return [
+    { "items-center": !slots.description && !props.description },
+    { "items-start": slots.description || props.description },
+    { "gap-2": props.size === "md" },
+    { "text-base gap-3": props.size === "lg" },
+    { "cursor-pointer": !props.disabled },
+    { "cursor-not-allowed": props.disabled },
+    { "flex-row-reverse": props.position === "left" },
+    { "justify-between w-full": props.spaceBetween },
+  ]
 })
 
-const subStyle = computed(() => {
-  return {
-    "size-4": props.size === "sm",
-    "size-5": props.size === "md",
-    "size-7": props.size === "lg",
-    "toggle justify-self-end": inputValue.value,
-    "toggle-reverse justify-self-start": !inputValue.value,
-  }
+const style = computed(() => {
+  return [
+    { "w-9 h-5 after:h-4 after:w-4": props.size === "md" },
+    { "w-11 h-6 after:h-5 after:w-5": props.size === "lg" },
+    { "after:bg-white peer-checked:bg-blue-500 ": !props.disabled },
+    { "after:bg-gray-50 peer-checked:bg-gray-200": props.disabled },
+  ]
 })
 </script>
 
 <template>
-  <div class="flex items-center gap-3 justify-between" :class="labelPosition === 'left' ? 'flex-row' : 'flex-row-reverse'">
-    <input class="hidden" type="checkbox" :name="name" :value="inputValue" :checked="checked" @change="handleChange(!inputValue)">
-    <slot>
-      <p v-if="label" class="text-sm first-letter:uppercase">
-        {{ label }}
-      </p>
-    </slot>
+  <label class="inline-flex" :class="labelStyle">
+    <span v-if="secondaryLabel" class="text-gray-700 font-roboto-medium">{{ secondaryLabel }}</span>
+    <input type="checkbox" class="sr-only peer hidden" :disabled="disabled" :name="name" :value="value" :checked="checked" @change="handleChange(!value)">
     <div
-      class="shrink-0 rounded-full cursor-pointer transition-all duration-300 ease-linear p-px grid"
+      class="relative bg-gray-200 hover:bg-gray-300 peer-focus:outline-hidden peer-focus:ring-3 peer-focus:ring-blue-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-0.5 after:rounded-full after:transition-all after:ease-linear shrink-0"
       :class="style"
-      @click="handleChange(!inputValue)"
-    >
-      <div class="rounded-full bg-white shadow-sm" :class="subStyle" />
+    />
+    <div class="flex flex-col">
+      <span class="text-gray-700 font-roboto-medium">
+        <slot name="label">{{ label }}</slot>
+      </span>
+      <span v-if="slots.description || description" class="text-gray-600">
+        <slot name="description">{{ description }}</slot>
+      </span>
     </div>
-  </div>
+  </label>
 </template>
-
-<style scoped>
-@keyframes toggle {
-  0% {
-    justify-self: flex-start;
-  }
-
-  50% {
-    width: 100%;
-  }
-
-  100% {
-    justify-self: flex-end;
-  }
-}
-
-@keyframes toggle-reverse {
-  0% {
-    justify-self: flex-end;
-  }
-
-  50% {
-    width: 100%;
-  }
-
-  100% {
-    justify-self: flex-start;
-  }
-}
-</style>
