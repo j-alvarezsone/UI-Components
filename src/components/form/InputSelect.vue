@@ -373,42 +373,40 @@ const dropDownIconStyle = computed(() => {
       </template>
     </button>
     <Teleport to="body">
-      <div class="z-999 shadow-lg" :style="dropdownPositionStyle">
-        <Transition name="fade" mode="out-in">
-          <div v-if="isDropdownVisible && !loading">
-            <div v-bind="containerProps" class="bg-white border border-gray-100 rounded-lg w-full overflow-y-auto max-h-80 flex flex-col">
-              <ul v-bind="wrapperProps">
-                <li
-                  v-for="option in list"
-                  :key="toValue(option.data)"
-                  :test-id="`option-${toValue(option.data)}`"
-                  class="py-2.5 px-3.5 flex items-center gap-6 hover:bg-slate-100 text-base"
-                  :class="[
-                    {
-                      'bg-slate-100': toValue(option.data) === value,
-                    },
-                    toDisabled(option.data) ? 'cursor-not-allowed text-gray-400' : 'cursor-pointer ',
-                  ]"
-                  @click.stop="selectOption(toValue(option.data), option.data)"
-                >
-                  <slot name="option-list" :option="option" :to-label="toLabel">
-                    {{ toLabel(option.data) }}
-                  </slot>
-                  <slot name="option-icon" :option="option" :to-value="toValue" :value:="value">
-                    <BaseIcon v-if="toValue(option.data) === value" name="Check" class="size-5 shrink-0 ml-auto text-blue-600" />
-                  </slot>
-                </li>
-              </ul>
-              <div v-if="!filteredOptions.length" class="flex flex-col items-center p-6 text-center">
-                <span class="font-roboto-medium max-w-full">
-                  No {{ label ?? "item" }} found <span v-if="search" class="break-words">matching for "{{ search }}"</span>
-                </span>
-              </div>
+      <Transition name="fade" mode="out-in">
+        <div v-if="isDropdownVisible && !loading" class="z-999" :style="dropdownPositionStyle">
+          <div v-bind="containerProps" class="bg-white border border-gray-100 rounded-lg w-full overflow-y-auto shadow-onWhite max-h-80 flex flex-col">
+            <ul v-bind="wrapperProps">
+              <li
+                v-for="option in list"
+                :key="toValue(option.data)"
+                :test-id="`option-${toValue(option.data)}`"
+                class="py-2.5 px-3.5 flex items-center gap-6 hover:bg-slate-100 text-base"
+                :class="[
+                  {
+                    'bg-slate-100': toValue(option.data) === value,
+                  },
+                  toDisabled(option.data) ? 'cursor-not-allowed text-gray-400' : 'cursor-pointer ',
+                ]"
+                @click.stop="selectOption(toValue(option.data), option.data)"
+              >
+                <slot name="option-list" :option="option" :to-label="toLabel">
+                  {{ toLabel(option.data) }}
+                </slot>
+                <slot name="option-icon" :option="option" :to-value="toValue" :value:="value">
+                  <BaseIcon v-if="toValue(option.data) === value" name="Check" class="size-5 shrink-0 ml-auto text-blue-600" />
+                </slot>
+              </li>
+            </ul>
+            <div v-if="!filteredOptions.length" class="flex flex-col items-center p-6 text-center">
+              <span class="font-roboto-medium max-w-full">
+                No {{ label ?? "item" }} found <span v-if="search" class="break-words">matching for "{{ search }}"</span>
+              </span>
             </div>
-            <slot />
           </div>
-        </Transition>
-      </div>
+          <slot />
+        </div>
+      </Transition>
     </Teleport>
     <ErrorMessage v-if="!disabled && !loading" :name="name" class="text-red-500 absolute top-full mt-1.5" />
   </div>
