@@ -3,6 +3,7 @@ import { ref } from "vue"
 import BaseButton from "./base/BaseButton.vue"
 import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
+import InputTextArea from "./form/InputTextArea.vue"
 import Tooltip from "./Tooltip.vue"
 
 defineProps<{ msg: string }>()
@@ -35,5 +36,6 @@ const option = ref("1")
     </Tooltip>
     <InputText v-model="testMsg" class="w-88" name="test" label="test" placeholder="Type something..." copy icon="QuestionCircle" />
     <InputSelect v-model="option" class="w-88" name="test" label="test" placeholder="Select option" :options="options" searchable tooltip="test" />
+    <InputTextArea class="w-88" name="message" label="test" placeholder="SType something..." />
   </div>
 </template>
