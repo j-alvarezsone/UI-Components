@@ -614,7 +614,7 @@ function isOutOfBounds(containerEl: HTMLElement) {
 <template>
   <div>
     <slot :event="event" :keep-tooltip-visible="keepTooltipVisible" />
-    <teleport to="body">
+    <Teleport to="body">
       <div v-if="isTooltipVisible && !disabled" ref="tooltipContainerRef" class="tooltip_container shadow-natural" @mouseenter="keepTooltipVisible" @mouseleave="handleMouseLeave">
         <slot name="content">
           <span v-if="content && html" v-html="content" />
@@ -622,7 +622,7 @@ function isOutOfBounds(containerEl: HTMLElement) {
         </slot>
       </div>
       <div v-if="isTooltipVisible && !noArrow" ref="tooltipArrowRef" class="tooltip_arrow" />
-    </teleport>
+    </Teleport>
   </div>
 </template>
 
