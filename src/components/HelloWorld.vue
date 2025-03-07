@@ -8,7 +8,7 @@ import InputRadio from "./form/InputRadio.vue"
 import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
 import InputTextArea from "./form/InputTextArea.vue"
-import ToggleInput from "./form/ToggleInput.vue"
+import InputToggle from "./form/InputToggle.vue"
 import Tooltip from "./Tooltip.vue"
 
 defineProps<{ msg: string }>()
@@ -48,7 +48,7 @@ const toggle = ref(false)
     <InputCheckbox v-model="check" name="check" :checked-value="true" label="$ USD" />
     <InputRadio v-model="radio" name="usd" checked-value="USD" label="$ USD" />
     <InputRadio v-model="radio" name="eur" checked-value="EUR" label="€ EUR" />
-    <ToggleInput v-model="toggle" name="toggle" label="Toggle" tooltip-text="test" hide-tooltip label-position="right" />
+    <InputToggle v-model="toggle" name="toggle" label="Toggle" tooltip-text="test" hide-tooltip label-position="right" />
     <InputEmail class="w-88" name="email" label="Test" placeholder="Type your Email..." />
     <InputPassword class="w-88" name="password" label="Test" placeholder="Type your Password..." />
   </div>
