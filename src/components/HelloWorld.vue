@@ -4,6 +4,7 @@ import BaseButton from "./base/BaseButton.vue"
 import InputCheckbox from "./form/InputCheckbox.vue"
 import InputEmail from "./form/InputEmail.vue"
 import InputPassword from "./form/InputPassword.vue"
+import InputRadio from "./form/InputRadio.vue"
 import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
 import InputTextArea from "./form/InputTextArea.vue"
@@ -18,6 +19,7 @@ const options = [
 ]
 const option = ref("1")
 const check = ref(false)
+const radio = ref("")
 </script>
 
 <template>
@@ -41,7 +43,9 @@ const check = ref(false)
     <InputText v-model="testMsg" class="w-88" name="test" label="test" placeholder="Type something..." copy icon="QuestionCircle" />
     <InputSelect v-model="option" class="w-88" name="test" label="test" placeholder="Select option" :options="options" searchable tooltip="test" />
     <InputTextArea class="w-88" name="message" label="test" placeholder="SType something..." />
-    <InputCheckbox v-model="check" name="check" :checked-value="true" label="Test" />
+    <InputCheckbox v-model="check" name="check" :checked-value="true" label="$ USD" />
+    <InputRadio v-model="radio" name="usd" checked-value="USD" label="$ USD" />
+    <InputRadio v-model="radio" name="eur" checked-value="EUR" label="€ EUR" />
     <InputEmail class="w-88" name="email" label="Test" placeholder="Type your Email..." />
     <InputPassword class="w-88" name="password" label="Test" placeholder="Type your Password..." />
   </div>

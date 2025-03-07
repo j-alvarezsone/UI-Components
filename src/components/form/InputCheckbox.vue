@@ -53,7 +53,7 @@ const buttonStyle = computed(() => {
   return [
     "border rounded-md grid place-content-center outline-hidden shrink-0",
     // hover & focus
-    { "group-hover:bg-blue-50 focus:ring-3 focus:ring-blue-300/50 group-focus:ring-3 group-focus:ring-blue-300/50 hover:border-blue-600": !props.disabled },
+    { "group-hover:bg-blue-50 focus:ring-3 focus:ring-blue-300/50 hover:border-blue-600": !props.disabled },
     // disabled
     { "border-gray-200 bg-gray-100 cursor-not-allowed": props.disabled },
     // checked
