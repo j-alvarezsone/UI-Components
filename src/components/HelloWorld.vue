@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import BaseButton from "./base/BaseButton.vue"
+import InputCheckbox from "./form/InputCheckbox.vue"
 import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
 import InputTextArea from "./form/InputTextArea.vue"
@@ -14,6 +15,7 @@ const options = [
   { value: "3", label: "Three" },
 ]
 const option = ref("1")
+const check = ref(false)
 </script>
 
 <template>
@@ -37,5 +39,6 @@ const option = ref("1")
     <InputText v-model="testMsg" class="w-88" name="test" label="test" placeholder="Type something..." copy icon="QuestionCircle" />
     <InputSelect v-model="option" class="w-88" name="test" label="test" placeholder="Select option" :options="options" searchable tooltip="test" />
     <InputTextArea class="w-88" name="message" label="test" placeholder="SType something..." />
+    <InputCheckbox v-model="check" name="check" :checked-value="true" label="Test" />
   </div>
 </template>
