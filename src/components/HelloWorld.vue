@@ -9,6 +9,8 @@ import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
 import InputTextArea from "./form/InputTextArea.vue"
 import InputToggle from "./form/InputToggle.vue"
+import TabManager from "./tabs/TabManager.vue"
+import TabView from "./tabs/TabView.vue"
 import Tooltip from "./Tooltip.vue"
 
 defineProps<{ msg: string }>()
@@ -51,5 +53,22 @@ const toggle = ref(false)
     <InputToggle v-model="toggle" name="toggle" label="Toggle" :checked-value="true" :unchecked-value="false" tooltip-text="test" hide-tooltip label-position="right" />
     <InputEmail class="w-88" name="email" label="Test" placeholder="Type your Email..." />
     <InputPassword class="w-88" name="password" label="Test" placeholder="Type your Password..." />
+    <TabManager center>
+      <TabView title="tab1">
+        Tab 1 content
+      </TabView>
+      <TabView title="tab2" :disabled="true">
+        Tab 2 content
+      </TabView>
+      <TabView title="tab3" :hidden="true">
+        Tab 3 content
+      </TabView>
+      <TabView title="tab4">
+        Tab 4 content
+      </TabView>
+      <TabView title="tab5">
+        Tab 5 content
+      </TabView>
+    </TabManager>
   </div>
 </template>
