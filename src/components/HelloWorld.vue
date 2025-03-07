@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import { TAGS } from "../constants/tags"
 import BaseButton from "./base/BaseButton.vue"
 import InputCheckbox from "./form/InputCheckbox.vue"
 import InputEmail from "./form/InputEmail.vue"
@@ -9,6 +10,8 @@ import InputSelect from "./form/InputSelect.vue"
 import InputText from "./form/InputText.vue"
 import InputTextArea from "./form/InputTextArea.vue"
 import InputToggle from "./form/InputToggle.vue"
+import NCarousel from "./NCarousel.vue"
+import ServiceGallery from "./ServiceGallery.vue"
 import TabManager from "./tabs/TabManager.vue"
 import TabView from "./tabs/TabView.vue"
 import Tooltip from "./Tooltip.vue"
@@ -24,6 +27,19 @@ const option = ref("1")
 const check = ref(false)
 const radio = ref("")
 const toggle = ref(false)
+
+const items = [
+  { id: 1, name: "item 1", tag: TAGS.BETA },
+  { id: 2, name: "item 2", tag: TAGS.LATEST },
+  { id: 3, name: "item 3", tag: TAGS.RECOMMEND },
+  { id: 4, name: "item 4", tag: TAGS.REQUESTED },
+  { id: 5, name: "item 5", tag: TAGS.UPGRADE },
+  { id: 6, name: "item 6", tag: TAGS.UPGRADE },
+  { id: 7, name: "item 7", tag: TAGS.REQUESTED },
+  { id: 8, name: "item 8", tag: TAGS.RECOMMEND },
+  { id: 9, name: "item 9", tag: TAGS.LATEST },
+  { id: 10, name: "item 10", tag: TAGS.BETA },
+]
 </script>
 
 <template>
@@ -70,5 +86,13 @@ const toggle = ref(false)
         Tab 5 content
       </TabView>
     </TabManager>
+  </div>
+  <br>
+  <div class="w-full">
+    <NCarousel :items :item-key="(item) => item.id">
+      <template #default="{ item }">
+        <ServiceGallery :key="item?.id" :label="item?.name" :tag="item?.tag" />
+      </template>
+    </NCarousel>
   </div>
 </template>

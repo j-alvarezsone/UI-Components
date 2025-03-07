@@ -9,4 +9,6 @@ export type IconName =
   "Email" |
   "Locked" |
   "Eye" |
-  "EyeClosed"
+  "EyeClosed" |
+  "ChevronLeft" |
+  "ChevronRight"
