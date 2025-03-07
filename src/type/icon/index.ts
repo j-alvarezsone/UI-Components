@@ -1,3 +1,9 @@
 export type IconName =
-  "ErrorOutline" | "Copy" |
-  "QuestionCircle" | "Close" | "Search" | "ChevronDown" | "Check"
+  "ErrorOutline" |
+  "Copy" |
+  "QuestionCircle" |
+  "Close" |
+  "Search" |
+  "ChevronDown" |
+  "Check" |
+  "Email"
