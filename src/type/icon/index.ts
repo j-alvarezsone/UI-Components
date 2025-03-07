@@ -6,4 +6,7 @@ export type IconName =
   "Search" |
   "ChevronDown" |
   "Check" |
-  "Email"
+  "Email" |
+  "Locked" |
+  "Eye" |
+  "EyeClosed"
