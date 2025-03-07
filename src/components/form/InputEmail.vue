@@ -129,7 +129,6 @@ const style = computed(() => {
         <input
           :id="name"
           v-focus="focus"
-          test-id="emailInput"
           type="'email'novalidate/"
           :value="value"
           class="flex-1 focus:outline-hidden focus:outline-offset-0 truncate placeholder:text-gray-500"

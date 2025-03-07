@@ -140,7 +140,6 @@ const style = computed(() => {
         <input
           :id="name"
           v-focus="focus"
-          test-id="passwordInput"
           :type="mask ? 'text' : 'password'"
           :value="value"
           class="flex-1 focus:outline-hidden focus:outline-offset-0 truncate placeholder:text-gray-500"

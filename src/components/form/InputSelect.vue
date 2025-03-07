@@ -327,7 +327,10 @@ const dropDownIconStyle = computed(() => {
       <span class="first-letter:uppercase">{{ label }}</span>
       <span v-if="!required" class="text-tiny text-gray-500 italic">(Optional)</span>
     </label>
-    <button type="button" :test-id="`${name}InputSelectButton`" :disabled="disabled" :class="selectedOptionStyle" @click="onToggleOpen">
+    <button
+      type="button"
+      :disabled="disabled" :class="selectedOptionStyle" @click="onToggleOpen"
+    >
       <div v-if="loading" class="flex items-center gap-2">
         <Loader :is-text-visible="false" size="md" color="neutral" />
         <span v-if="loading" class="text-xs text-gray-500 animate-pulse">Getting data...</span>
@@ -346,7 +349,6 @@ const dropDownIconStyle = computed(() => {
             :id="name"
             v-model="search"
             v-focus="true"
-            :test-id="`${name}SearchInput`"
             type="text"
             placeholder="Search"
             class="grow focus:outline-hidden border-none placeholder-gray-500 truncate w-1/2"
@@ -380,7 +382,6 @@ const dropDownIconStyle = computed(() => {
               <li
                 v-for="option in list"
                 :key="toValue(option.data)"
-                :test-id="`option-${toValue(option.data)}`"
                 class="py-2.5 px-3.5 flex items-center gap-6 hover:bg-slate-100 text-base"
                 :class="[
                   {

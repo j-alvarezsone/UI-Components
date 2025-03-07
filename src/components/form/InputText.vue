@@ -184,7 +184,6 @@ const style = computed(() => {
           :id="name"
           ref="inputText"
           v-focus="focus"
-          :test-id="`${name}Input`"
           :type="type"
           :value="value"
           class="flex-1 focus:outline-hidden focus:outline-offset-0 truncate placeholder:text-gray-500 min-w-0"

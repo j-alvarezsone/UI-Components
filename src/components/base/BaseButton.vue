@@ -206,7 +206,7 @@ const loaderSize = computed(() => {
     <div v-if="loading" class="absolute inset-0 grid place-content-center bg-black/20">
       <Loader :is-text-visible="false" :size="loaderSize" color="dark" />
     </div>
-    <div v-if="icon" :test-id="icon" :class="[size === '2xl' ? 'size-6' : 'size-5', { 'order-1': iconPos === 'right' && hasLabel }]">
+    <div v-if="icon" :class="[size === '2xl' ? 'size-6' : 'size-5', { 'order-1': iconPos === 'right' && hasLabel }]">
       <BaseIcon :name="icon" :class="iconStyle" />
     </div>
     <slot />
