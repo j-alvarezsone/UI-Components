@@ -10,5 +10,6 @@ export default antfu({
     "jsonc/no-useless-escape": "off",
     "no-irregular-whitespace": "off",
     "no-console": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 })

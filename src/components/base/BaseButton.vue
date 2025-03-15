@@ -109,7 +109,7 @@ const style = computed(() => {
     },
     // Tertiary
     {
-      "bg-white text-cool-gray-700 border border-cool-gray-300 hover:bg-cool-gray-200/20  hover:text-cool-gray-800 focus:ring-cool-gray-300/50":
+      "bg-white text-gray-700 border border-gray-300 hover:bg-gray-200/20  hover:text-gray-800 focus:ring-gray-300/50":
         variant === "tertiary" && !disabled && !loading && outlined,
     },
     // Danger
@@ -129,7 +129,7 @@ const style = computed(() => {
     },
     // Tertiary
     {
-      "text-cool-gray-700 hover:bg-cool-gray-200/20 focus:ring-cool-gray-300/50": variant === "tertiary" && !disabled && !loading && text,
+      "text-gray-700 hover:bg-gray-200/20 focus:ring-gray-300/50": variant === "tertiary" && !disabled && !loading && text,
     },
     // Secondary
     {
@@ -149,7 +149,7 @@ const style = computed(() => {
     },
     // Tertiary
     {
-      "text-cool-gray-700 focus:ring-cool-gray-300/50": variant === "tertiary" && !disabled && !loading && link,
+      "text-gray-700 focus:ring-gray-300/50": variant === "tertiary" && !disabled && !loading && link,
     },
     // Secondary
     {
@@ -160,13 +160,13 @@ const style = computed(() => {
       "select-none cursor-not-allowed": disabled || loading,
     },
     {
-      "bg-cool-gray-400 text-white ": (disabled || loading) && !outlined && !text && !link,
+      "bg-gray-400 text-white ": (disabled || loading) && !outlined && !text && !link,
     },
     {
-      "border border-cool-gray-200 text-cool-gray-300": (disabled || loading) && outlined,
+      "border border-gray-200 text-gray-300": (disabled || loading) && outlined,
     },
     {
-      "text-cool-gray-300": (disabled || loading) && (text || link),
+      "text-gray-300": (disabled || loading) && (text || link),
     },
     // Transitions
     "transition duration-300 ease-in-out",
