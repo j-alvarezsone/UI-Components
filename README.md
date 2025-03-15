@@ -1,6 +1,14 @@
-# Vue 3 + TypeScript + Vite
+# Installation
+Use your preferred package manager to install dependencies:
+- pnpm install
+- yarn install
+- npm install
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Storybook
+Use your preferred package manager to run Storybook:
+- pnpm storybook
+- yarn storybook
+- npm run storybook
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
-# UI
+## UI Components
+This project is a collection of reusable UI components built with Vue 3, TypeScript, and Vite. It utilizes Storybook to develop showcase these components in an isolated environment.

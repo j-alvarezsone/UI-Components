@@ -62,8 +62,8 @@ const iconStyle = computed(() => {
 
 <template>
   <div :class="style">
-    <div v-if="icon" class="grid place-content-center" :class="{ iconSize: icon }">
-      <BaseIcon :name="icon" :class="iconStyle" class="shrink-0" />
+    <div v-if="icon" class="grid place-content-center" :class="iconStyle">
+      <BaseIcon :name="icon" class="shrink-0" />
     </div>
     <slot>
       {{ label }}

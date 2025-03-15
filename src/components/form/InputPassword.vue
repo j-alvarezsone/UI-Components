@@ -26,7 +26,6 @@ interface Props {
   clearable?: boolean
   onePassword?: boolean
   bgColor?: string
-  hasFieldError?: boolean
   modelValue?: string
 }
 
@@ -47,7 +46,6 @@ const props = withDefaults(defineProps<Props>(), {
   clearable: false,
   onePassword: false,
   bgColor: undefined,
-  hasFieldError: false,
   modelValue: undefined,
   tooltipPlacement: TOOLTIP_PLACEMENTS.TOP,
 })
@@ -111,9 +109,9 @@ const style = computed(() => {
     { "h-10 text-base": props.size === "md" },
     { "h-11 text-lg": props.size === "lg" },
     // Border
-    { "border border-gray-300": !errors.value.length && !isFocused.value && !props.hasFieldError },
-    { "ring-3 ring-blue-300/50 border border-blue-600": !errors.value.length && isFocused.value && !props.hasFieldError },
-    { "ring-3 ring-error-300/50 border border-error-500": (errors.value.length && !props.disabled && isFocused.value) || props.hasFieldError },
+    { "border border-gray-300": !errors.value.length && !isFocused.value},
+    { "ring-3 ring-blue-300/50 border border-blue-600": !errors.value.length && isFocused.value },
+    { "ring-3 ring-error-300/50 border border-error-500": errors.value.length && !props.disabled && isFocused.value },
     { "border border-error-500": errors.value.length && !props.disabled && !isFocused.value },
     { "cursor-not-allowed": props.disabled || props.loading },
   ]

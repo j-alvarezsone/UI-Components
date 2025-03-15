@@ -29,7 +29,6 @@ interface Props {
   errorMessage?: string
   disableFilter?: boolean
   selectFirst?: boolean
-  selectOnlyOptionAvailable?: boolean
   modelValue?: string
   filterBy?: string[]
   optionValue?: (option: T) => string
@@ -55,7 +54,6 @@ const props = withDefaults(defineProps<Props>(), {
   errorMessage: undefined,
   disableFilter: false,
   selectFirst: false,
-  selectOnlyOptionAvailable: true,
   modelValue: undefined,
   optionValue: undefined,
   optionLabel: undefined,
@@ -263,16 +261,6 @@ function selectFirstOption() {
     }
   }
 }
-
-function selectOnlyOption() {
-  if (!value.value) {
-    if (props.options?.length && props.options.length === 1 && props.selectOnlyOptionAvailable) {
-      handleChange(toValue(props.options[0]))
-    }
-  }
-}
-
-selectOnlyOption()
 
 if (props.selectFirst) {
   onMounted(() => {

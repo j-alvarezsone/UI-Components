@@ -32,7 +32,6 @@ interface Props {
   onePassword?: boolean
   min?: string
   max?: string
-  hasFieldError?: boolean
   bgColor?: string
   modelValue?: string | number
   errorMessage?: string
@@ -61,7 +60,6 @@ const props = withDefaults(defineProps<Props>(), {
   onePassword: false,
   min: undefined,
   max: undefined,
-  hasFieldError: false,
   bgColor: undefined,
   modelValue: undefined,
   errorMessage: undefined,
@@ -145,9 +143,9 @@ const style = computed(() => {
     { "h-11 text-lg": props.size === "lg" },
     { "h-12 text-xl": props.size === "xl" },
     // Border
-    { "border border-gray-300": !errors.value.length && !props.noBorder && !isFocused.value && !props.hasFieldError },
-    { "ring-3 ring-blue-300/50 border border-blue-600": !errors.value.length && !props.noBorder && isFocused.value && !props.hasFieldError },
-    { "ring-3 ring-error-300/50 border border-error-500": (errors.value.length && !props.disabled && isFocused.value) || props.hasFieldError },
+    { "border border-gray-300": !errors.value.length && !props.noBorder && !isFocused.value },
+    { "ring-3 ring-blue-300/50 border border-blue-600": !errors.value.length && !props.noBorder && isFocused.value },
+    { "ring-3 ring-error-300/50 border border-error-500": errors.value.length && !props.disabled && isFocused.value},
     { "border border-error-500": errors.value.length && !props.disabled && !isFocused.value },
     { "cursor-not-allowed": props.disabled || props.loading },
   ]
